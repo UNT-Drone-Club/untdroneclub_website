@@ -1,0 +1,24 @@
+{
+	"/": [
+		"src/routes/+layout.js",
+		"src/routes/+layout.js"
+	],
+	"/designs": [
+		"src/routes/+layout.js"
+	],
+	"/history": [
+		"src/routes/+layout.js"
+	],
+	"/members": [
+		"src/routes/+layout.js"
+	],
+	"/projects": [
+		"src/routes/+layout.js"
+	],
+	"/sponsors": [
+		"src/routes/+layout.js"
+	],
+	"/spotlight": [
+		"src/routes/+layout.js"
+	]
+}

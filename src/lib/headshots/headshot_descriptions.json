@@ -1,0 +1,17 @@
+[
+  {
+    "position": "Officers",
+    "members": [
+      {
+        "name": "Mario",
+        "title": "President",
+        "description": "It'sa-me",
+        "image": "mario.webp"
+      }
+    ]
+  },
+  {
+    "position": "Members",
+    "members": []
+  }
+]
