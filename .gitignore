@@ -1,3 +1,6 @@
 # NPM
 /build
 /node_modules
+
+# Stupid mac thing
+/.DS_Store
