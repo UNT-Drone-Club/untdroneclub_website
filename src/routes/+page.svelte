@@ -46,7 +46,7 @@
         <h3 in:fly={{ y:10 }} class="font-bold text-white text-xl italic mb-2">University of North Texas • Engineering</h3>
         <div in:fly={{ y:10, delay: 150 }} class="flex items-center flex-between gap-20">
           <F1Stripe />
-          <h1  class="font-[Bronzier] tracking-wide font-bold white text-8xl text-center">
+          <h1  class="font-[Bronzier] tracking-wider font-bold white text-9xl text-center text-shadow-lg">
             UNT Drone Club 
           </h1>
           <F1Stripe />
@@ -65,60 +65,6 @@
 
 <!-- MAIN HOME CONTENT -->
 <div class="flex w-full flex-col items-center justify-center">
-	<!-- ABOUT US -->
-	<div class="relative sm:px-4 flex sm:flex-row flex-col items-center justify-center gap-4 py-8">
-    <!-- BACKGROUND -->
-    <div class="mask-l-from-30% absolute inset-0 w-full h-full">
-      <CheckerboardPattern />
-    </div>
-  
-
-		<!-- BODY -->
-		<div class="w-full px-4 sm:w-1/2 flex-col">
-			<h2 class="mb-4 flex w-full justify-center text-5xl font-bold text-green-700">About us</h2>
-      <h3>Want to know what we do? Look at our projects.</h3>
-			</div>
-		</div>
-
-		<!-- PHOTOS -->
-		<!-- <div class="flex w-1/2 flex-col"> -->
-		<!-- 	<img src={michigan} alt="" class="rounded-xl" /> -->
-		<!-- </div> -->
-	</div>
-
-	<!-- WHAT WE DO -->
-	<div class="flex w-full flex-col items-center gap-4 bg-green-700 px-4 py-8 text-white">
-		<!-- HEADER -->
-		<h2 class="text-5xl font-bold">What We Do</h2>
-
-		<!-- TRI SPLIT CONTENT -->
-		<div class="flex gap-8">
-		  <div class="w-1/3">
-        <img src={integrated} alt="Integrated Engineering" class="rounded-xl" />
-		    <h3 class="text-2xl">Integrated Engineering</h3>
-		    <p>
-		      Hands-on experience building formula race cars while running an automotive engineering
-		      research, design, and manufacturing firm.
-		    </p>
-		  </div>
-		  <div class="w-1/3">
-        <img src={professional} alt="Integrated Engineering" class="rounded-xl" />
-		    <h3 class="text-2xl">Professional Development</h3>
-		    <p>
-		      Experience and support propels our members forward into successful careers as best-in the
-		      industry innovators, leaders, and professionals.
-		    </p>
-		  </div>
-		  <div class="w-1/3">
-        <img src={innovative} alt="Integrated Engineering" class="rounded-xl" />
-		    <h3 class="text-2xl">Innovative Research</h3>
-		    <p>
-		      Groundbreaking projects redefine electric vehicle development, as the senior design team
-		      conducts industry-changing research.
-		    </p>
-		  </div>
-		</div>
-	</div>
 
 	<!-- MEET OUR CREW -->
 	<div class="flex w-full flex-col items-center px-4 py-8">
