@@ -27,20 +27,17 @@ export {};
 
 declare module "$app/types" {
 	export interface AppTypes {
-		RouteId(): "/" | "/designs" | "/history" | "/members" | "/projects" | "/sponsors" | "/spotlight";
+		RouteId(): "/" | "/members" | "/projects" | "/sponsors";
 		RouteParams(): {
 			
 		};
 		LayoutParams(): {
 			"/": Record<string, never>;
-			"/designs": Record<string, never>;
-			"/history": Record<string, never>;
 			"/members": Record<string, never>;
 			"/projects": Record<string, never>;
-			"/sponsors": Record<string, never>;
-			"/spotlight": Record<string, never>
+			"/sponsors": Record<string, never>
 		};
-		Pathname(): "/" | "/designs" | "/designs/" | "/history" | "/history/" | "/members" | "/members/" | "/projects" | "/projects/" | "/sponsors" | "/sponsors/" | "/spotlight" | "/spotlight/";
+		Pathname(): "/" | "/members" | "/members/" | "/projects" | "/projects/" | "/sponsors" | "/sponsors/";
 		ResolvedPathname(): `${"" | `/${string}`}${ReturnType<AppTypes['Pathname']>}`;
 		Asset(): "/.DS_Store" | "/fonts/bronzier/Bronzier-Medium.woff" | "/logo/untLogo.png" | "/logo/untLogoEagle.png" | "/robots.txt" | "/splat/animation.html" | "/splat/saecar.html" | string & {};
 	}

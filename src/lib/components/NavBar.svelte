@@ -1,13 +1,9 @@
 <!-- Root Layout Nav Bar -->
+<!-- HOME -->
+<!-- MEMBERS -->
+<!-- PROJECTS -->
+<!-- SPONSORS -->
 <script>
-	/*
-  Menu:
-    Home
-    About
-    Members
-    Senior Spotlight
-    Contact
-  */
 	//BITS-UI Components
 	import { DropdownMenu } from 'bits-ui';
 
@@ -62,7 +58,7 @@
 >
 	<!-- LEFT ALIGNED NAVIGATION-->
 	<div class="mx-8 flex h-full flex-row items-center gap-8">
-		<!-- MEAN GREEN RACING LOGO -->
+    <!-- DRONE CLUB LOGO -->
 		<img src="logo/untLogo.png" alt="UNT Logo" class="h-full object-contain" />
 
 		<!-- NAVIGATION LINKS -->
@@ -77,53 +73,58 @@
 			<!-- 	ABOUT -->
 			<!-- 	<RiArrowDownSLine /> -->
 			<!-- </button> -->
-			<DropdownMenu.Root bind:open={menuOpen}>
-				<DropdownMenu.Trigger
-					class="group flex cursor-pointer items-center transition-all hover:text-green-300"
-				>
-					<p>
-            ABOUT
-            <span class="-mt-1 block h-[1px] max-w-0 bg-green-600 transition-all group-hover:max-w-full"
-            ></span>
-          </p>
-					<div class:rotate-90={menuOpen} class="transition-all">
-						<RiArrowDownSLine />
-					</div>
-				</DropdownMenu.Trigger>
+			<!-- <DropdownMenu.Root bind:open={menuOpen}> -->
+			<!-- 	<DropdownMenu.Trigger -->
+			<!-- 		class="group flex cursor-pointer items-center transition-all hover:text-green-300" -->
+			<!-- 	> -->
+			<!-- 		<p> -->
+   <!--          ABOUT -->
+   <!--          <span class="-mt-1 block h-[1px] max-w-0 bg-green-600 transition-all group-hover:max-w-full" -->
+   <!--          ></span> -->
+   <!--        </p> -->
+			<!-- 		<div class:rotate-90={menuOpen} class="transition-all"> -->
+			<!-- 			<RiArrowDownSLine /> -->
+			<!-- 		</div> -->
+			<!-- 	</DropdownMenu.Trigger> -->
+<!---->
+			<!-- 	<DropdownMenu.Portal> -->
+			<!-- 		<DropdownMenu.Content -->
+			<!-- 			class="relative z-60 rounded-xl bg-green-700 px-4 py-2 shadow-xl" -->
+			<!-- 			sideOffset={1} -->
+			<!-- 			forceMount -->
+			<!-- 		> -->
+			<!-- 			{#snippet child({ wrapperProps, props, open })} -->
+			<!-- 				{#if open} -->
+			<!-- 					<div {...wrapperProps} class="font-[Bronzier] text-xl text-white"> -->
+			<!-- 						<div {...props} transition:fly={{ y: -5 }}> -->
+			<!-- 							<DropdownMenu.Item> -->
+			<!-- 								<a href="/history" class="transition-all duration-100 hover:text-green-300" -->
+			<!-- 									>History</a -->
+			<!-- 								> -->
+			<!-- 							</DropdownMenu.Item> -->
+			<!-- 							<DropdownMenu.Item> -->
+			<!-- 								<a href="/projects" class="transition-all duration-100 hover:text-green-300" -->
+			<!-- 									>Projects</a -->
+			<!-- 								> -->
+			<!-- 							</DropdownMenu.Item> -->
+			<!-- 						</div> -->
+			<!-- 					</div> -->
+			<!-- 				{/if} -->
+			<!-- 			{/snippet} -->
+			<!-- 			<!-- <DropdownMenu.Item --> -->
+			<!-- 			<!--   class="font-[Bronzier] text-white text-xl"  --> -->
+			<!-- 			<!-- > --> -->
+			<!-- 			<!--   <p>TEST</p> --> -->
+			<!-- 			<!-- </DropdownMenu.Item> --> -->
+			<!-- 		</DropdownMenu.Content> -->
+			<!-- 	</DropdownMenu.Portal> -->
+			<!-- </DropdownMenu.Root> -->
 
-				<DropdownMenu.Portal>
-					<DropdownMenu.Content
-						class="relative z-60 rounded-xl bg-green-700 px-4 py-2 shadow-xl"
-						sideOffset={1}
-						forceMount
-					>
-						{#snippet child({ wrapperProps, props, open })}
-							{#if open}
-								<div {...wrapperProps} class="font-[Bronzier] text-xl text-white">
-									<div {...props} transition:fly={{ y: -5 }}>
-										<DropdownMenu.Item>
-											<a href="/history" class="transition-all duration-100 hover:text-green-300"
-												>History</a
-											>
-										</DropdownMenu.Item>
-										<DropdownMenu.Item>
-											<a href="/projects" class="transition-all duration-100 hover:text-green-300"
-												>Projects</a
-											>
-										</DropdownMenu.Item>
-									</div>
-								</div>
-							{/if}
-						{/snippet}
-						<!-- <DropdownMenu.Item -->
-						<!--   class="font-[Bronzier] text-white text-xl"  -->
-						<!-- > -->
-						<!--   <p>TEST</p> -->
-						<!-- </DropdownMenu.Item> -->
-					</DropdownMenu.Content>
-				</DropdownMenu.Portal>
-			</DropdownMenu.Root>
-
+			<a href="/projects" class="group transition-colors duration-100 hover:text-green-300">
+          PROJECTS
+        <span class="-mt-1 block h-[1px] max-w-0 bg-green-600 transition-all group-hover:max-w-full"
+				></span>
+      </a>
 			<a href="/members" class="group transition-colors duration-100 hover:text-green-300">
         MEMBERS
         <span class="-mt-1 block h-[1px] max-w-0 bg-green-600 transition-all group-hover:max-w-full"
