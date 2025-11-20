@@ -2,12 +2,8 @@
 
 <script>
   //About us
-  import michigan from '$lib/assets/photos/home/michigan.jpg';
   import CheckerboardPattern from '$lib/components/CheckerboardPattern.svelte';
   //What we do
-  import innovative from '$lib/assets/photos/home/innovative.jpg';
-  import integrated from '$lib/assets/photos/home/integrated.jpg';
-  import professional from '$lib/assets/photos/home/professional.jpg';
 
   //Components
 	import HeroImage from '$lib/components/HeroImage.svelte';
