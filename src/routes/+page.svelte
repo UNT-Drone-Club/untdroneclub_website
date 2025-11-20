@@ -51,7 +51,7 @@
           </h1>
           <F1Stripe />
         </div>
-        <p in:fly={{ y:10, delay: 300 }} class="text-lg text-blue-200">[SUBTITLE]</p>
+        <p in:fly={{ y:10, delay: 300 }} class="text-lg text-blue-200">Look up at us</p>
 
         <a in:fly={{ y:10, delay: 450 }} href="/members" class="mt-8 overflow-hidden relative group bg-green-700 w-32 h-10 transform -skew-x-12 items-center flex justify-center">
           <div class="bg-green-600 absolute w-full h-full -translate-x-full transition-all group-hover:translate-x-0"></div>
