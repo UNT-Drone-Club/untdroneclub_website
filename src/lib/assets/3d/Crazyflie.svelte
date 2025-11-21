@@ -6,8 +6,8 @@ Command: npx @threlte/gltf@3.0.1 .\crazyflie1.gltf
 <script>
 	import { Group, PerspectiveCamera } from 'three';
 
-	import { T } from '@threlte/core';
-	import { useGltf, useGltfAnimations, OrbitControls } from '@threlte/extras';
+	import { T, useTask } from '@threlte/core';
+	import { useGltf, useGltfAnimations } from '@threlte/extras';
 
 	let { fallback, error, children, ref = $bindable(), ...props } = $props();
 
@@ -16,14 +16,16 @@ Command: npx @threlte/gltf@3.0.1 .\crazyflie1.gltf
 	const gltf = useGltf('/src/lib/assets/3d/crazyflie.glb');
 
 	export const { actions, mixer } = useGltfAnimations(gltf, ref);
+
+  //Propeller animation
+  let propRotation = $state(0);
+  let rotation = $state(0);
+  useTask((delta) => {
+    rotation += delta * 0.2;
+  })
+
 </script>
 
-<T.PerspectiveCamera makeDefault position={[1, 1, 3]} fov={40}>
-	<OrbitControls enableZoom={false} enablePan={false} />
-</T.PerspectiveCamera>
-
-<T.DirectionalLight position={[5, 5, 5]} />
-<T.AmbientLight intensity={0.5} />
 
 <T is={ref} dispose={false} {...props}>
 	{#await gltf}
@@ -36,20 +38,21 @@ Command: npx @threlte/gltf@3.0.1 .\crazyflie1.gltf
 				material={gltf.materials['Material.003']}
 				position={[0.01, 0, 0]}
 				scale={0.03}
+        rotation={[0, -rotation, 0]}
 			>
 				<T.Mesh
 					name="propeller_ccw_Default_sldprt001"
 					geometry={gltf.nodes.propeller_ccw_Default_sldprt001.geometry}
 					material={gltf.materials['Material.004']}
 					position={[33.94, 15.2, 33.85]}
-					rotation={[1.56, -0.01, 0.79]}
+					rotation={[1.56, -0.01, propRotation - 1]}
 				/>
 				<T.Mesh
 					name="propeller_ccw_Default_sldprt002"
 					geometry={gltf.nodes.propeller_ccw_Default_sldprt002.geometry}
 					material={gltf.materials['Material.007']}
 					position={[33.94, 15.2, -33.85]}
-					rotation={[-1.56, 0.01, 0.79]}
+					rotation={[-1.56, 0.01, -propRotation + 2]}
 					scale={-1}
 				/>
 				<T.Mesh
@@ -57,7 +60,7 @@ Command: npx @threlte/gltf@3.0.1 .\crazyflie1.gltf
 					geometry={gltf.nodes.propeller_ccw_Default_sldprt003.geometry}
 					material={gltf.materials['Material.004']}
 					position={[-33.83, 15.2, 33.32]}
-					rotation={[-1.56, 0.01, 0.79]}
+					rotation={[-1.56, 0.01, -propRotation + 5]}
 					scale={-1}
 				/>
 				<T.Mesh
@@ -102,7 +105,7 @@ Command: npx @threlte/gltf@3.0.1 .\crazyflie1.gltf
 					geometry={gltf.nodes.propeller_ccw_Default_sldprt004.geometry}
 					material={gltf.materials['Material.004']}
 					position={[-33.94, 15.2, -33.85]}
-					rotation={[1.57, 0, -1.54]}
+					rotation={[1.57, 0, propRotation]}
 				/>
 			</T.Mesh>
 		</T.Group>

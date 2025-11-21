@@ -6,7 +6,7 @@
   //What we do
 
   //Components
-  import DotPattern from '$lib/components/DotPattern.svelte';
+  // import DotPattern from '$lib/components/DotPattern.svelte';
 	import HeroImage from '$lib/components/HeroImage.svelte';
 	import CrewCarousel from '$lib/components/CrewCarousel.svelte';
   import F1Stripe from '$lib/components/F1Stripe.svelte';
@@ -74,7 +74,7 @@
 	</div>
 
   <!-- DOT PATTERN -->
-  <DotPattern fillColor="rgb(108 245 130 / 0.5)" class="[mask-image:radial-gradient(1000px_circle_at_center,transparent,white)]"/>
+  <!-- <DotPattern fillColor="rgb(108 245 130 / 0.5)" class="[mask-image:radial-gradient(1000px_circle_at_center,transparent,white)]"/> -->
 
   <!-- BLACK SCREEN -->
   <div class="z-50 heroBlack absolute inset-0 w-screen h-screen bg-black"></div>
@@ -123,8 +123,9 @@
     </div>
     
     <!-- PROJECTS -->
-    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mx-5">
-      <ProjectPreview />
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:mx-10">
+      <ProjectPreview type="crazyflie"/>
+      <ProjectPreview type="stingray"/>
       <ProjectPreview />
       <ProjectPreview />
     </div>
