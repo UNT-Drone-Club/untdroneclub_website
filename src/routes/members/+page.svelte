@@ -8,9 +8,6 @@
 </script>
 
 <div class="flex-center flex flex-col w-full items-center">
-  <!-- TITLE BANNER -->
-  <PageHeader src={crew_banner} alt="Crew Banner" title="Our Crew"/>
-
   <!-- HEADSHOTS COMPONENT -->
   <div class="flex-col h-full flex w-full justify-center p-4">
     {#each headshot_descriptions as position, i (position.position)}

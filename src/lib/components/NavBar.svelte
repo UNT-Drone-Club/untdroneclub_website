@@ -16,9 +16,19 @@
 
 	// import unt_logo from '$lib/assets/unt_logo.png';
 	import { page } from '$app/state';
+  import { onMount } from 'svelte';
 	import { afterNavigate, beforeNavigate } from '$app/navigation';
-	import { fly } from 'svelte/transition';
+  import { gsap } from 'gsap';
 	let pathname = $derived(page.url.pathname);
+
+  // Animation
+  let visible = $state(false);
+  onMount(() => {
+    if (pathname == '/') {
+      gsap.fromTo(".navBar", {opacity: 0, y: -40 }, {y:0, opacity: 1, duration: 1, delay: 0.5, ease: 'expo.out'});
+    }
+    visible = true;
+  })
 
 	let scrollY = $state(0);
 	let altNavbar = $derived.by(() => {
@@ -50,11 +60,12 @@
 
 <!-- MAIN NAVBAR DISPLAY -->
 <div
-	class="fixed z-50 flex h-20 w-full flex-row items-center justify-between border-b-1 border-b-white/30 py-2 text-white shadow-xl
+	class="navBar fixed z-50 flex h-20 w-full flex-row items-center justify-between border-b-1 border-b-white/30 py-2 text-white shadow-xl
   backdrop-blur-xs transition-colors"
 	class:duration-250={!navigating}
 	class:duration-0={navigating}
 	class:bg-black={altNavbar}
+  class:opacity-0={pathname == '/' && !visible}
 >
 	<!-- LEFT ALIGNED NAVIGATION-->
 	<div class="mx-8 flex h-full flex-row items-center gap-8">

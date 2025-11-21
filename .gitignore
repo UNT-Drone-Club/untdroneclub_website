@@ -6,4 +6,4 @@
 /.DS_Store
 
 # Sveltekit build temps
-/.svelte-kit
+.svelte-kit/

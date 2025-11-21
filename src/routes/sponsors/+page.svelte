@@ -6,9 +6,6 @@
 	const sponsor_images = import.meta.glob('$lib/sponsors/*.webp');
 </script>
 
-<!-- HEADER -->
-<PageHeader src={sponsor_banner} alt="Sponsor Banner" title="Our Sponsors"/>
-
 <!-- CONTENT -->
 <div class="p-4">
 	<p>

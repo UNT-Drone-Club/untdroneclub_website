@@ -2,11 +2,18 @@
 <script lang="ts">
 	import '../app.css';
 	import NavBar from '$lib/components/NavBar.svelte';
+  import { onMount } from 'svelte';
+  import { gsap } from 'gsap';
 
 	import { page } from '$app/state';
 	let pathname = $derived(page.url.pathname);
 
 	let { children } = $props();
+
+  // Navbar animation
+  onMount(() => {
+    // gsap.to(".navBar", {y: -30, duration:2});
+  })
 
 	// Navigation Links
 	// const navLinks = [
@@ -23,7 +30,7 @@
 <!-- FULL DIV -->
 <div class="flex w-full overflow-x-hidden font-[Montserrat]">
 	<!-- NAVBAR -->
-	<NavBar />
+  <NavBar />
 
 	<!-- MAIN CONTENT -->
 	<div class="h-full w-full" class:mt-20={pathname != '/'}>

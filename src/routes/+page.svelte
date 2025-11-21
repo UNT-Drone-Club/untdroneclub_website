@@ -10,9 +10,11 @@
 	import HeroImage from '$lib/components/HeroImage.svelte';
 	import CrewCarousel from '$lib/components/CrewCarousel.svelte';
   import F1Stripe from '$lib/components/F1Stripe.svelte';
-	import { fly } from 'svelte/transition';
   import { onMount } from 'svelte';
   import { gsap } from 'gsap';
+  import { SplitText } from 'gsap/SplitText';
+  import { ScrollTrigger } from 'gsap/ScrollTrigger';
+  import ProjectPreview from '$lib/components/ProjectPreview.svelte';
 
   //Icons
 
@@ -37,10 +39,27 @@
 
   //Hero component animation
   onMount(() => {
+    gsap.registerPlugin(SplitText);
+    gsap.registerPlugin(ScrollTrigger);
+
     let heroGsap = gsap.timeline();
+    let heroTitle = SplitText.create(".heroTitle", {type: "words"});
     heroGsap.add('start')
       .to(".heroBlack", {opacity: 0, duration: 1, delay: 0.2}, 'start')
-      .to(".heroImage", {scale: 1, duration: 2, delay: 0.2, ease: 'power3.inOut'}, 'start');
+      .to(".heroImage", {scale: 1, duration: 2, ease: 'power2.inOut'}, 'start')
+      .fromTo(heroTitle.words, {y: 50, opacity: 0}, {y:0, opacity: 1, duration: 0.9, ease: 'expo.out', delay: 0.2, stagger: 0.05}, 'start')
+
+    let heroExit = gsap.timeline({
+      scrollTrigger: {
+        trigger: '.mainHome',
+        start: 'top bottom',
+        end: 'top top',
+        scrub: 1,
+      }
+    });
+
+    heroExit.addLabel('exit')
+      .to(".heroImage", {y:10, opacity: 0.1, scale: 1.06}, 'exit')
 
 
   })
@@ -58,28 +77,30 @@
   <DotPattern fillColor="rgb(108 245 130 / 0.5)" class="[mask-image:radial-gradient(1000px_circle_at_center,transparent,white)]"/>
 
   <!-- BLACK SCREEN -->
-  <div class="heroBlack absolute inset-0 w-screen h-screen bg-black"></div>
+  <div class="z-50 heroBlack absolute inset-0 w-screen h-screen bg-black"></div>
 
 	<!-- BODY CONTENT -->
 	<div class="absolute inset-0 z-20 flex h-full w-full flex-row justify-center px-10 text-white">
 
     <div class="flex flex-col items-center justify-center w-full h-full">
       {#if ready}
-        <h3 in:fly={{ y:10 }} class="font-bold text-center text-white text-sm sm:text-xl italic mb-2">University of North Texas • Engineering</h3>
-        <div in:fly={{ y:10, delay: 150 }} class="flex items-center flex-between gap-20">
-          <!-- <F1Stripe /> -->
+        <h3 class="font-bold text-center text-white text-sm sm:text-xl italic mb-2">University of North Texas • Engineering</h3>
+        <div class="flex items-center flex-between gap-20">
+          <F1Stripe customClass="leftStripe"/>
 
 
           <!-- TITLE -->
-          <h1  class="font-[Bronzier] tracking-wider font-bold white text-6xl sm:text-9xl text-center text-shadow-lg">
-            UNT Drone Club 
-          </h1>
+          <div class="block overflow-hidden sm:mb-5 mb-0">
+            <h1 class="heroTitle font-[Bronzier] tracking-wider font-bold white text-6xl sm:text-9xl text-center text-shadow-lg sm:-mb-5 mb-0">
+              UNT Drone Club 
+            </h1>
+          </div>
 
-          <!-- <F1Stripe /> -->
+          <F1Stripe />
         </div>
-        <p in:fly={{ y:10, delay: 300 }} class="text-lg text-blue-200">Look up at us</p>
+        <p class="text-lg text-blue-200">Look up at us</p>
 
-        <a in:fly={{ y:10, delay: 450 }} href="/members" class="mt-8 overflow-hidden relative group bg-green-700 w-32 h-10 transform -skew-x-12 items-center flex justify-center">
+        <a href="/members" class="mt-8 overflow-hidden relative group bg-green-700 w-32 h-10 transform -skew-x-12 items-center flex justify-center">
           <div class="bg-green-600 absolute w-full h-full -translate-x-full transition-all group-hover:translate-x-0"></div>
           <p class="relative">Contact Us</p>
         </a>
@@ -93,7 +114,7 @@
 <div class="h-screen"></div>
 
 <!-- MAIN HOME CONTENT -->
-<div class="relative z-20 bg-green-50 w-screen h-500">
+<div class="mainHome relative z-20 bg-green-50 w-screen h-500">
   <!-- PROJECTS -->
   <div class="flex flex-col justify-center">
     <!-- TITLE -->
@@ -102,12 +123,18 @@
     </div>
     
     <!-- PROJECTS -->
-    <div class="flex flex-col">
-      <div class="flex justify-center w-full">
-        <div class="w-90/100 h-64 border border-black">
-        </div>
-      </div>
+    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 mx-5">
+      <ProjectPreview />
+      <ProjectPreview />
+      <ProjectPreview />
     </div>
+  </div>
+
+  <!-- CREW CAROUSEL -->
+  <div class="items-center flex flex-col justify-center">
+    <h2>Our crew</h2>
+    <p>Couldn't have done it without you</p>
+    <CrewCarousel />
   </div>
 </div>
 

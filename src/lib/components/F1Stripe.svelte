@@ -1,7 +1,10 @@
 <!-- F1 Stripe -->
+<script>
+  let { customClass = "" } = $props();
+</script>
 <!-- https://www.f1lasvegasgp.com/ -->
 
-          <div class="flex">
+          <div class="flex {customClass}">
 							<!--?xml version="1.0" encoding="UTF-8"?-->
 <svg class="h-12 -mr-px rotate-180" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 53 48.45">
 	<path d="M0,0v23h29.7L53,0H0Z" ></path>
