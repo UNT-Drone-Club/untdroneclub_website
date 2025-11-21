@@ -1,6 +1,5 @@
 <!-- SPONSORS PAGE -->
 <script>
-	import sponsor_banner from '$lib/assets/sae_photos/banners/sponsor_banner.webp';
   import PageHeader from '$lib/components/PageHeader.svelte';
 	import { fly } from 'svelte/transition';
 	import sponsors from '$lib/sponsors/sponsors.json';

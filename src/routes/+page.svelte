@@ -11,6 +11,7 @@
   import F1Stripe from '$lib/components/F1Stripe.svelte';
 	import { fly } from 'svelte/transition';
   import { onMount } from 'svelte';
+  import { gsap } from 'gsap';
 
   //Ready on mount
   let ready = $state(false)
@@ -29,14 +30,24 @@
 			hero_index = Math.floor(Math.random() * hero_text_choices.length);
 		}
 	}, HERO_INTERVAL);
+
+
+  //Hero component animation
+  onMount(() => {
+    gsap.to(".heroBlack", {opacity: 0, duration: 3, delay: 0.2})
+  })
+  
 </script>
 
 <!-- HERO COMPONENT -->
-<div class="relative z-10 h-screen w-full overflow-hidden">
+<div class="fixed z-10 h-screen w-full overflow-hidden">
 	<!-- HERO IMAGE -->
 	<div class="absolute inset-0 scale-103">
 		<HeroImage />
 	</div>
+
+  <!-- BLACK SCREEN -->
+  <div class="heroBlack absolute inset-0 w-screen h-screen bg-black"></div>
 
 	<!-- BODY CONTENT -->
 	<div class="absolute inset-0 z-20 flex h-full w-full flex-row justify-center px-10 text-white">
@@ -46,7 +57,7 @@
         <h3 in:fly={{ y:10 }} class="font-bold text-white text-xl italic mb-2">University of North Texas • Engineering</h3>
         <div in:fly={{ y:10, delay: 150 }} class="flex items-center flex-between gap-20">
           <F1Stripe />
-          <h1  class="font-[Bronzier] tracking-wider font-bold white text-9xl text-center text-shadow-lg">
+          <h1  class="font-[Bronzier] tracking-wider font-bold white text-8xl text-center text-shadow-lg">
             UNT Drone Club 
           </h1>
           <F1Stripe />
@@ -63,8 +74,12 @@
 	</div>
 </div>
 
+<div class="h-screen"></div>
+
+<div class="relative z-20 bg-blue-500 w-screen h-screen"></div>
+
 <!-- MAIN HOME CONTENT -->
-<div class="flex w-full flex-col items-center justify-center">
+<div class="z-50 flex w-full flex-col items-center justify-center">
 
 	<!-- MEET OUR CREW -->
 	<div class="flex w-full flex-col items-center px-4 py-8">

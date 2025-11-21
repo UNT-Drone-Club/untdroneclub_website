@@ -2,7 +2,6 @@
 <script>
 	import headshot_descriptions from '$lib/headshots/headshot_descriptions.json';
   import { fly } from 'svelte/transition';
-  import crew_banner from '$lib/assets/sae_photos/banners/crew_banner.webp';
   import PageHeader from '$lib/components/PageHeader.svelte';
 	const headshot_images = import.meta.glob('$lib/headshots/*.webp');
 
