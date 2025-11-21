@@ -7,7 +7,6 @@
 	import { fly } from 'svelte/transition';
 	import { quintIn, quintOut } from 'svelte/easing';
 	import { beforeNavigate } from '$app/navigation';
-  import DotPattern from '$lib/components/DotPattern.svelte';
 
 	//Image imports
 	import firstImage from '$lib/assets/photos/hero/starting.webp';
@@ -103,6 +102,4 @@
 		<!-- <p>Loading...</p> -->
 	{/if}
 
-  <!-- DOT PATTERN -->
-  <DotPattern fillColor="rgb(108 245 130 / 0.5)" class="[mask-image:radial-gradient(1000px_circle_at_center,transparent,white)]"/>
 </div>

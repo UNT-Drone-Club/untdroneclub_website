@@ -30,7 +30,7 @@
 		{@render children?.()}
 
 		<!-- FOOTER -->
-		<div class="flex w-full bg-green-700 px-16 py-8 text-white">
+		<div class="relative z-30 flex w-full bg-green-700 px-16 py-8 text-white">
 			<!-- NAVIGATION LINKS -->
 			<div class="flex flex-col">
 				<h2 class="font-bold">Navigate</h2>

@@ -1,14 +1,15 @@
-@import 'tailwindcss';
+@import "tailwindcss";
 @plugin '@tailwindcss/typography';
 
 /* Stops elastic scrolling */
 body {
-	overscroll-behavior: none;
+  overscroll-behavior: none;
+  background-color: black;
 }
 
 @font-face {
-	font-family: 'Bronzier';
-	src: url('/fonts/bronzier/Bronzier-Medium.woff') format('woff');
-	font-weight: normal;
-	font-style: normal;
+  font-family: "Bronzier";
+  src: url("/fonts/bronzier/Bronzier-Medium.woff") format("woff");
+  font-weight: normal;
+  font-style: normal;
 }
