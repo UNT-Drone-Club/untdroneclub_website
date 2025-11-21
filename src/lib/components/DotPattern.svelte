@@ -7,7 +7,7 @@
   export let y = 0;
   export let cx = 1;
   export let cy = 1;
-  export let cr = 1;
+  export let cr = 2.5;
   export let fillColor = "rgb(163 163 163 / 0.8)";
 
   let className: any = "";
