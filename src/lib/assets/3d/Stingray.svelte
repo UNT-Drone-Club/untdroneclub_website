@@ -5,7 +5,7 @@ Command: npx @threlte/gltf@3.0.1 .\stingray.glb
 
 <script>
   import { T, useTask } from '@threlte/core'
-  import { useGltf } from '@threlte/extras'
+  import { useGltf, OrbitControls } from '@threlte/extras'
 
   let { fallback, error, children, ref = $bindable(), ...props } = $props()
 
@@ -19,6 +19,14 @@ Command: npx @threlte/gltf@3.0.1 .\stingray.glb
   })
 
 </script>
+
+<T.PerspectiveCamera makeDefault position={[-20,15,-50]} fov={40}>
+<OrbitControls enableZoom={false} enablePan={false} />
+</T.PerspectiveCamera>
+
+<T.DirectionalLight position={[-30, 9, -15]} intensity={4} />
+<T.AmbientLight intensity={1.5} />
+
 
 <T.Group
   bind:ref

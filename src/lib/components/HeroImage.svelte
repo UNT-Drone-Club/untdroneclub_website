@@ -95,7 +95,7 @@
 				src={currentImage}
 				in:fly|global={!navigating ? { y: 25, duration: 2000, easing: quintOut } : { duration: 0 }}
 				out:fly|global={!navigating ? { duration: 4000, easing: quintIn } : { duration: 0 }}
-				class="absolute inset-0 h-full w-full object-cover brightness-65"
+				class="heroImg absolute inset-0 h-full w-full object-cover brightness-95"
 			/>
 		{/key}
 	{:else}
@@ -103,3 +103,17 @@
 	{/if}
 
 </div>
+
+<style>
+  .heroImg::after {
+   content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  box-shadow: inset 0px 0px 85px rgba(0, 0, 0, 0.8);
+  }
+</style>
+
+

@@ -4,7 +4,6 @@
 /* Stops elastic scrolling */
 body {
   overscroll-behavior: none;
-  background-color: black;
 }
 
 @font-face {

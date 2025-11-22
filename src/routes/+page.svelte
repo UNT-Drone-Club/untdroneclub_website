@@ -15,6 +15,11 @@
   import { SplitText } from 'gsap/SplitText';
   import { ScrollTrigger } from 'gsap/ScrollTrigger';
   import ProjectPreview from '$lib/components/ProjectPreview.svelte';
+  import HeroParticles from '$lib/components/HeroParticles.svelte';
+
+  // 3d Models
+  import Crazyflie from '$lib/assets/3d/Crazyflie.svelte';
+  import Stingray from '$lib/assets/3d/Stingray.svelte';
 
   //Icons
 
@@ -44,10 +49,12 @@
 
     let heroGsap = gsap.timeline();
     let heroTitle = SplitText.create(".heroTitle", {type: "words"});
+    let heroPreTitle = SplitText.create(".heroPreTitle", {type: "chars"})
     heroGsap.add('start')
       .to(".heroBlack", {opacity: 0, duration: 1, delay: 0.2}, 'start')
       .to(".heroImage", {scale: 1, duration: 2, ease: 'power2.inOut'}, 'start')
-      .fromTo(heroTitle.words, {y: 50, opacity: 0}, {y:0, opacity: 1, duration: 0.9, ease: 'expo.out', delay: 0.2, stagger: 0.05}, 'start')
+      .fromTo(heroPreTitle.chars, {y: -50, opacity: 0}, {y: 0, opacity: 1, stagger: 0.01, delay: 0.2}, 'start')
+      .fromTo(heroTitle.words, {y: 50, opacity: 0}, {y:0, opacity: 1, duration: 0.9, ease: 'expo.out', delay: 0.4, stagger: 0.05}, 'start')
 
     let heroExit = gsap.timeline({
       scrollTrigger: {
@@ -59,7 +66,9 @@
     });
 
     heroExit.addLabel('exit')
-      .to(".heroImage", {y:10, opacity: 0.1, scale: 1.06}, 'exit')
+      .to(".heroImage", {y:10, scale: 1.06}, 'exit')
+      .to(".heroBody", {y:40}, 'exit')
+      .fromTo(".heroBlackExit", {opacity: 0}, {opacity: 0.8}, 'exit')
 
 
   })
@@ -73,30 +82,32 @@
 		<HeroImage />
 	</div>
 
-  <!-- DOT PATTERN -->
-  <!-- <DotPattern fillColor="rgb(108 245 130 / 0.5)" class="[mask-image:radial-gradient(1000px_circle_at_center,transparent,white)]"/> -->
+  <!-- PARTICLES -->
+  <div class="relative z-10 w-screen h-screen">
+    <HeroParticles />
+  </div>
 
   <!-- BLACK SCREEN -->
   <div class="z-50 heroBlack absolute inset-0 w-screen h-screen bg-black"></div>
+  <div class="z-50 heroBlackExit absolute inset-0 w-screen h-screen bg-black"></div>
 
 	<!-- BODY CONTENT -->
-	<div class="absolute inset-0 z-20 flex h-full w-full flex-row justify-center px-10 text-white">
+	<div class="heroBody absolute inset-0 z-20 flex h-full w-full flex-row justify-center px-10 text-white">
 
     <div class="flex flex-col items-center justify-center w-full h-full">
       {#if ready}
-        <h3 class="font-bold text-center text-white text-sm sm:text-xl italic mb-2">University of North Texas • Engineering</h3>
+        <h3 class="heroPreTitle font-bold text-center text-white text-sm sm:text-xl italic mb-2 text-shadow-lg">University of North Texas • Engineering</h3>
         <div class="flex items-center flex-between gap-20">
-          <F1Stripe customClass="leftStripe"/>
-
+          <!-- <F1Stripe customClass="leftStripe"/> -->
 
           <!-- TITLE -->
           <div class="block overflow-hidden sm:mb-5 mb-0">
             <h1 class="heroTitle font-[Bronzier] tracking-wider font-bold white text-6xl sm:text-9xl text-center text-shadow-lg sm:-mb-5 mb-0">
-              UNT Drone Club 
+              UNT <span class="text-green-200">Drone</span> Club 
             </h1>
           </div>
 
-          <F1Stripe />
+          <!-- <F1Stripe /> -->
         </div>
         <p class="text-lg text-blue-200">Look up at us</p>
 
@@ -114,7 +125,7 @@
 <div class="h-screen"></div>
 
 <!-- MAIN HOME CONTENT -->
-<div class="mainHome relative z-20 bg-green-50 w-screen h-500">
+<div class="mainHome relative z-20 bg-green-50 w-screen">
   <!-- PROJECTS -->
   <div class="flex flex-col justify-center">
     <!-- TITLE -->
@@ -124,10 +135,10 @@
     
     <!-- PROJECTS -->
     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:mx-10">
-      <ProjectPreview type="crazyflie"/>
-      <ProjectPreview type="stingray"/>
-      <ProjectPreview />
-      <ProjectPreview />
+      <ProjectPreview Model={Crazyflie} type="3d" title="Crazyflie" subtitle="Bitcraze" description="A palm-sized research quadcopter with a powerful, modular feature set"/>
+      <ProjectPreview Model={Stingray} type="3d" title="Stingray" subtitle="idk lol" description="Matthew's finest work"/>
+      <ProjectPreview title="World Record Drone" subtitle="Maybe" description="This guy goes faster than the speed limit"/>
+      <ProjectPreview type="placeholder"/>
     </div>
   </div>
 

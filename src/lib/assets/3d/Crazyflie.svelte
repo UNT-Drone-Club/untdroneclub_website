@@ -7,7 +7,7 @@ Command: npx @threlte/gltf@3.0.1 .\crazyflie1.gltf
 	import { Group, PerspectiveCamera } from 'three';
 
 	import { T, useTask } from '@threlte/core';
-	import { useGltf, useGltfAnimations } from '@threlte/extras';
+	import { useGltf, useGltfAnimations, OrbitControls } from '@threlte/extras';
 
 	let { fallback, error, children, ref = $bindable(), ...props } = $props();
 
@@ -25,6 +25,13 @@ Command: npx @threlte/gltf@3.0.1 .\crazyflie1.gltf
   })
 
 </script>
+
+<T.PerspectiveCamera makeDefault position={[1.5, 1.4, 4.2]} fov={40}>
+  <OrbitControls enableZoom={false} enablePan={false} />
+</T.PerspectiveCamera>
+
+<T.DirectionalLight position={[3, 3, 5]} />
+<T.AmbientLight intensity={0.5} />
 
 
 <T is={ref} dispose={false} {...props}>
